@@ -1,0 +1,50 @@
+// Add a todo
+app.post('/projects/:id/todos', (req, res) => {
+  const { description } = req.body;
+  const project = projects.find(p => p.projectId === req.params.id);
+  if (!project) {
+    return res.status(404).send('Project not found');
+  }
+  const newTodo = {
+    todoId: Date.now().toString(),
+    description,
+    status: 'pending',
+    createdDate: new Date().toISOString(),
+    updatedDate: new Date().toISOString()
+  };
+  project.todos.push(newTodo);
+  res.status(201).json(newTodo);
+});
+
+// Update a todo
+app.patch('/projects/:projectId/todos/:todoId', (req, res) => {
+  const { projectId, todoId } = req.params;
+  const { description, status } = req.body;
+  const project = projects.find(p => p.projectId === projectId);
+  if (!project) {
+    return res.status(404).send('Project not found');
+  }
+  const todo = project.todos.find(t => t.todoId === todoId);
+  if (!todo) {
+    return res.status(404).send('Todo not found');
+  }
+  if (description) todo.description = description;
+  if (status) todo.status = status;
+  todo.updatedDate = new Date().toISOString();
+  res.json(todo);
+});
+
+// Delete a todo
+app.delete('/projects/:projectId/todos/:todoId', (req, res) => {
+  const { projectId, todoId } = req.params;
+  const project = projects.find(p => p.projectId === projectId);
+  if (!project) {
+    return res.status(404).send('Project not found');
+  }
+  const todoIndex = project.todos.findIndex(t => t.todoId === todoId);
+  if (todoIndex === -1) {
+    return res.status(404).send('Todo not found');
+  }
+  project.todos.splice(todoIndex, 1);
+  res.status(204).send();
+});
