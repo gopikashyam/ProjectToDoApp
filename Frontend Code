@@ -1,0 +1,22 @@
+//views/index.ejs
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todo Projects</title>
+</head>
+<body>
+  <h1>Projects</h1>
+  <form action="/projects" method="post">
+    <input type="text" name="title" placeholder="Project Title" required>
+    <button type="submit">Create Project</button>
+  </form>
+  <ul>
+    <% projects.forEach(project => { %>
+      <li>
+        <a href="/projects/<%= project._id %>"><%= project.title %></a>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
