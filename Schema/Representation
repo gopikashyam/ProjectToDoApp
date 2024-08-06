@@ -1,0 +1,14 @@
+{
+  "projectId": "unique_project_id",
+  "title": "Project Title",
+  "createdDate": "YYYY-MM-DDTHH:MM:SSZ",
+  "todos": [
+    {
+      "todoId": "unique_todo_id",
+      "description": "Todo Description",
+      "status": "pending/completed",
+      "createdDate": "YYYY-MM-DDTHH:MM:SSZ",
+      "updatedDate": "YYYY-MM-DDTHH:MM:SSZ"
+    }
+  ]
+}
