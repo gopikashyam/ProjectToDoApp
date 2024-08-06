@@ -1,0 +1,13 @@
+function generateMarkdown(project) {
+  const completedTodos = project.todos.filter(todo => todo.status === 'completed');
+  const pendingTodos = project.todos.filter(todo => todo.status === 'pending');
+  
+  const markdownContent = `# ${project.title}\n\n` +
+    `**Summary:** ${completedTodos.length}/${project.todos.length} completed\n\n` +
+    `## Pending\n` +
+    pendingTodos.map(todo => `- [ ] ${todo.description}`).join('\n') + '\n\n' +
+    `## Completed\n` +
+    completedTodos.map(todo => `- [x] ${todo.description}`).join('\n');
+    
+  return markdownContent;
+}
