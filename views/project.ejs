@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= project.title %></title>
+</head>
+<body>
+  <h1><%= project.title %></h1>
+  <form action="/projects/<%= project._id %>/todos" method="post">
+    <input type="text" name="description" placeholder="Todo Description" required>
+    <button type="submit">Add Todo</button>
+  </form>
+  <h2>Pending</h2>
+  <ul>
+    <% project.todos.filter(todo => todo.status === 'pending').forEach(todo => { %>
+      <li>
+        <form action="/todos/<%= project._id %>/todos/<%= todo._id %>/update" method="post">
+          <input type="text" name="description" value="<%= todo.description %>" required>
+          <button type="submit" name="status" value="completed">Mark as Completed</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+  <h2>Completed</h2>
+  <ul>
+    <% project.todos.filter(todo => todo.status === 'completed').forEach(todo => { %>
+      <li>
+        <form action="/todos/<%= project._id %>/todos/<%= todo._id %>/delete" method="post">
+          <span><%= todo.description %></span>
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
