@@ -1,0 +1,8 @@
+const fs = require('fs');
+
+function exportToMarkdown(project) {
+  const markdownContent = `# ${project.title}\n\n` +
+    project.todos.map(todo => `- [${todo.status}] ${todo.description} (Created: ${todo.createdDate}, Updated: ${todo.updatedDate})`).join('\n');
+  
+  fs.writeFileSync('project_summary.md', markdownContent);
+}
