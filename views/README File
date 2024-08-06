@@ -1,0 +1,55 @@
+//README.md
+
+# Todo App
+
+A simple todo management application using Node.js, Express, MongoDB, and EJS.
+
+## Setup
+
+1. **Clone the repository**:
+
+    ```bash
+    git clone https://github.com/yourusername/todo-app.git
+    cd todo-app
+    ```
+
+2. **Install dependencies**:
+
+    ```bash
+    npm install
+    ```
+
+3. **Set up MongoDB**:
+
+   Ensure you have MongoDB running locally. You can download and start MongoDB from [MongoDB's website](https://www.mongodb.com/try/download/community).
+
+## Running the Application
+
+1. **Start the server**:
+
+    ```bash
+    npm start
+    ```
+
+2. **Access the application**:
+
+    Open your browser and go to `http://localhost:3000`.
+
+## Testing
+
+Manual testing can be done by:
+
+1. **Creating a new project** and viewing it.
+2. **Adding todos** to the project.
+3. **Updating and deleting todos**.
+4. **Viewing the project details** including todos.
+
+Automated tests are not included in this setup. For advanced testing, consider using tools like Jest or Mocha.
+
+## Export to GitHub Gist
+
+To export a project summary as a GitHub Gist, you need to create a route that generates a markdown file and posts it to the GitHub Gist API. Ensure you have a GitHub personal access token with appropriate permissions.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
