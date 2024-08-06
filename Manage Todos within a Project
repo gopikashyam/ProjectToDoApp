@@ -1,0 +1,8 @@
+ToDo Schema
+{
+  "todoId": "unique_todo_id",
+  "description": "Todo Description",
+  "status": "pending/completed",
+  "createdDate": "YYYY-MM-DDTHH:MM:SSZ",
+  "updatedDate": "YYYY-MM-DDTHH:MM:SSZ"
+}
